@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atelier Tatiana — Boho Couture & Tailoring — Bornem</title>
+    <meta
+      name="description"
+      content="Atelier Tatiana — vermaak, herstellingen en couture op maat. Bornem, Boomstraat 56."
+    />
+    <meta
+      property="og:title"
+      content="Atelier Tatiana — Boho Couture & Tailoring"
+    />
+    <meta
+      property="og:description"
+      content="Vermaak/herstellingen, couture op maat, upcycling. Bornem, Boomstraat 56."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_BE" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+
+  <!-- Чтобы сделать фото-фоном всю страницу, добавь к body класс has-bg
+     и задай CSS-переменную через style: 
+     <body class="has-bg" style="--page-bg-image:url('images/bg.jpg')">
+-->
+  <body id="top">
+    <!-- ====== HEADER ====== -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand">
+          <img src="images/logo.png" alt="Tatiana Atelier" class="logo" />
+          <span class="brand-text">Atelier Tatiana</span>
+        </a>
+
+        <!-- Бургер на мобиле -->
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" aria-label="Hoofdmenu">
+          <ul class="nav-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">Over ons</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="atelier.html">Atelier</a></li>
+            <!-- НОВАЯ страница -->
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <!-- Action-иконки -->
+          <div class="nav-actions">
+            <!-- Поиск -->
+            <button
+              class="icon-btn"
+              data-open="searchModal"
+              aria-label="Zoeken"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <!-- Избранное -->
+            <a
+              class="icon-btn"
+              href="wishlist.html"
+              target="_blank"
+              aria-label="Verlanglijst"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+
+            <!-- Язык -->
+            <div class="lang-switch">
+              <button
+                class="icon-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Taal"
+              >
+                NL ▾
+              </button>
+              <ul class="lang-menu" role="listbox">
+                <li role="option" data-lang="nl">NL — Nederlands</li>
+                <li role="option" data-lang="ru">RU — Русский</li>
+                <li role="option" data-lang="en">EN — English</li>
+              </ul>
+            </div>
+
+            <!-- Войти/Аккаунт -->
+            <button
+              class="icon-btn"
+              data-open="authModal"
+              aria-label="Inloggen/Account"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+
+            <!-- Корзина -->
+            <a class="btn cart-btn" href="cart.html">
+              Winkelwagen <span class="cart-badge" id="cartCount">0</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- === Модалка поиска === -->
+    <div class="modal" id="searchModal" aria-hidden="true">
+      <div class="modal__dialog">
+        <button class="modal__close" aria-label="Sluiten" data-close>×</button>
+        <h3>Zoeken</h3>
+        <form id="siteSearchForm" class="search-form" role="search">
+          <input
+            type="search"
+            name="q"
+            placeholder="Waar ben je naar op zoek?"
+            aria-label="Zoekterm"
+            required
+          />
+          <button class="btn gold">Zoek</button>
+          <a class="open-new" href="search.html" target="_blank" rel="noopener"
+            >Openen in een nieuw tab</a
+          >
+        </form>
+      </div>
+    </div>
+
+    <!-- === Модалка Авторизации === -->
+    <div class="modal" id="authModal" aria-hidden="true">
+      <div class="modal__dialog">
+        <button class="modal__close" aria-label="Sluiten" data-close>×</button>
+        <div class="tabs">
+          <button class="tab active" data-tab="login">Inloggen</button>
+          <button class="tab" data-tab="register">Registreren</button>
+        </div>
+
+        <form id="loginForm" class="auth-form active" autocomplete="on">
+          <label>E-mail<input type="email" name="email" required /></label>
+          <label
+            >Wachtwoord<input type="password" name="password" required
+          /></label>
+          <button class="btn gold" type="submit">Inloggen</button>
+        </form>
+
+        <form id="registerForm" class="auth-form">
+          <label>Naam<input type="text" name="name" required /></label>
+          <label>E-mail<input type="email" name="email" required /></label>
+          <label
+            >Wachtwoord<input type="password" name="password" required
+          /></label>
+          <button class="btn gold" type="submit">Account aanmaken</button>
+        </form>
+      </div>
+    </div>
+    <!-- PAGE: ATELIER -->
+    <main class="page" id="page-atelier" data-page="atelier" hidden>
+      <section class="section">
+        <div class="container">
+          <h2>Atelier</h2>
+          <p class="lead">
+            Stoffen, garens, fournituren — selecties die we in het atelier
+            gebruiken.
+          </p>
+
+          <div class="products" id="atelier-list">
+            <!-- заполним позже карточками тканей/нитей/фурнитуры -->
+          </div>
+          <p class="muted small">
+            * Hier tonen we materialen, geen directe verkoop. Voor bestellingen
+            of vragen: ga naar <a href="#/contact" data-route>Contact</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero section">
+      <div class="container hero-in">
+        <h1>Boho Chic & Historische Elegantie</h1>
+        <p class="lead">
+          Exclusieve creaties en vermaak op maat. Handgemaakt met oog voor
+          detail — in Bornem.
+        </p>
+        <div class="row">
+          <a class="btn btn-gold" href="#shop">Bekijk collectie</a>
+          <a class="btn btn-ghost" href="#contact">Afspraak maken</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OVER ONS ===== -->
+    <section id="about" class="about section">
+      <div class="container grid-2">
+        <div>
+          <h2>Over ons</h2>
+          <p>
+            Atelier Tatiana is een boetiek-atelier waar vakmanschap, boho chic
+            en historische stijl samenkomen. Wij werken op maat, doen
+            herstellingen en creëren kleine series met natuurlijke stoffen.
+          </p>
+          <ul class="bullets">
+            <li>Maatwerk & vermaak</li>
+            <li>Herstellingen / aanpassingen</li>
+            <li>Upcycling & bridal</li>
+          </ul>
+
+          <!-- Локальная смена фона секции About (только для предпросмотра) -->
+          <div class="about-tools">
+            <label class="file-btn"
+              >Achtergrond wijzigen
+              <input type="file" accept="image/*" id="about-bg-input" />
+            </label>
+            <label class="file-btn"
+              >Foto toevoegen
+              <input type="file" accept="image/*" id="about-gallery-input" />
+            </label>
+          </div>
+        </div>
+
+        <div class="about-media">
+          <div class="about-gallery" id="about-gallery">
+            <img
+              src="https://images.unsplash.com/photo-1520975922284-9a4b3a3a0fda?q=80&w=800&auto=format&fit=crop"
+              alt="Atelier sfeer"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop"
+              alt="Texturen & stoffen"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SHOP ===== -->
+    <section id="shop" class="shop section">
+      <div class="container">
+        <h2>Shop</h2>
+        <!-- фильтры по желанию -->
+        <div class="products" id="products"><!-- JS рендерит карточки --></div>
+      </div>
+    </section>
+
+    <!-- Модал 360° -->
+    <div class="modal" id="viewer360" aria-hidden="true" role="dialog">
+      <button class="modal-close" id="viewer360-close" aria-label="Sluiten">
+        ×
+      </button>
+      <div class="viewer-wrap">
+        <img id="viewer360-img" alt="360 weergave" />
+        <div class="viewer-hint">Sleep om te draaien</div>
+      </div>
+    </div>
+
+    <!-- ===== REVIEWS ===== -->
+    <section id="reviews" class="reviews section">
+      <div class="container">
+        <h2>Beoordelingen</h2>
+        <div class="carousel">
+          <button class="carousel-nav prev" aria-label="Vorige">‹</button>
+          <div class="carousel-track" id="reviews-track">
+            <!-- 10 демо-карточек; замени своими -->
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Prachtig vakwerk!”<cite>— Anna</cite></blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Unieke stijl.”<cite>— Elise</cite></blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Heerlijke stoffen.”<cite>— Noor</cite></blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>
+                “Historische details ✨”<cite>— Lotte</cite>
+              </blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>
+                “Mijn favoriete atelier.”<cite>— Mila</cite>
+              </blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Tot in de puntjes.”<cite>— Emma</cite></blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>
+                “Persoonlijke aanpak.”<cite>— Julia</cite>
+              </blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Aanrader!”<cite>— Sara</cite></blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>
+                “Creatief & tijdloos.”<cite>— Olivia</cite>
+              </blockquote>
+            </article>
+            <article class="review">
+              <img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&q=60"
+                alt=""
+              />
+              <blockquote>“Ik kom zeker terug.”<cite>— Sofie</cite></blockquote>
+            </article>
+          </div>
+          <button class="carousel-nav next" aria-label="Volgende">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CART DRAWER ===== -->
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+      <div class="cart-header">
+        <h3>Winkelwagen</h3>
+        <button class="cart-close" id="cart-close" aria-label="Sluiten">
+          ×
+        </button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="row">
+          <span>Subtotaal</span><span id="subtotal">€0,00</span>
+        </div>
+        <div class="row">
+          <label for="shipping">Verzending</label>
+          <select id="shipping">
+            <option value="0">Afhalen in atelier — €0,00</option>
+            <option value="6.5">Standaard (BE) — €6,50</option>
+            <option value="12">Express — €12,00</option>
+          </select>
+        </div>
+        <div class="row total">
+          <span>Totaal</span><span id="total">€0,00</span>
+        </div>
+
+        <details class="payment">
+          <summary>Betaling & gegevens</summary>
+          <form id="checkout-form">
+            <input required placeholder="Naam" />
+            <input required placeholder="E-mail" type="email" />
+            <input placeholder="Telefoon" />
+            <input placeholder="Adres" />
+            <select required>
+              <option>Bancontact</option>
+              <option>iDEAL</option>
+              <option>Overschrijving</option>
+              <option>Contant in winkel</option>
+            </select>
+            <button class="btn btn-gold full" type="submit">
+              Bestelling bevestigen
+            </button>
+            <p class="muted small">Demo: betaling is gesimuleerd.</p>
+          </form>
+        </details>
+      </div>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact" class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h3 class="brand-footer"><span>Atelier</span> <em>Tatiana</em></h3>
+          <p>Handgemaakte couture in boho chic & historische stijl.</p>
+          <ul class="contact-list">
+            <li>Adres: Boomstraat 56, 2880 Bornem</li>
+            <li>Tel: <a href="tel:+32467722737">+32 467 72 27 37</a></li>
+            <li>
+              E-mail:
+              <a href="mailto:ateliertatianabe@gmail.com"
+                >ateliertatianabe@gmail.com</a
+              >
+            </li>
+            <li>
+              Instagram:
+              <a href="https://instagram.com/ateliertatiana" target="_blank"
+                >@ateliertatiana</a
+              >
+            </li>
+          </ul>
+          <p class="small muted">
+            © <span id="year"></span> Atelier Tatiana. Alle rechten
+            voorbehouden.
+          </p>
+        </div>
+        <div>
+          <h4>Openingstijden</h4>
+          <div class="hours">
+            <span>Dinsdag–Zaterdag</span><strong>09:00–18:00</strong>
+            <span>Middagpauze</span><strong>12:30–13:30</strong>
+            <span>Zondag & Feestdagen</span><strong>Gesloten</strong>
+          </div>
+        </div>
+        <div>
+          <h4>Kaart</h4>
+          <div class="map-wrap">
+            <iframe
+              title="Kaart"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Boomstraat%2056,%202880%20Bornem&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

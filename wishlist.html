@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Verlanglijst — Atelier Tatiana</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container" style="padding: 40px 20px">
+      <h1>Mijn verlanglijst</h1>
+      <div id="wl" class="grid"></div>
+    </main>
+    <script>
+      const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const wrap = document.getElementById("wl");
+      if (!wl.length) wrap.innerHTML = "<p>Nog geen items.</p>";
+      else
+        wrap.innerHTML = wl.map((i) => `<div class="card">${i}</div>`).join("");
+    </script>
+  </body>
+</html>

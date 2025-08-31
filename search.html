@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Zoeken — Atelier Tatiana</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container" style="padding: 40px 20px">
+      <h1>Zoeken</h1>
+      <p>Resultaten voor: <strong id="q"></strong></p>
+      <div id="results" class="grid"></div>
+    </main>
+    <script>
+      const p = new URLSearchParams(location.search).get("q") || "";
+      document.getElementById("q").textContent = p;
+      // Здесь можно подгрузить реальные товары по запросу p
+    </script>
+  </body>
+</html>
