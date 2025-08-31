@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Atelier — Atelier Tatiana</title>
+    <title>Shop — Atelier Tatiana</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="page" data-page="atelier">
-    <!-- Тот же HEADER -->
+  <body>
+    <!-- Вставляем ТОЧНО такой же HEADER, как в index.html -->
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="brand" href="index.html"
@@ -65,49 +65,13 @@
     </header>
 
     <main class="section">
-      <div class="container grid-2">
-        <div>
-          <h1>Atelier</h1>
-          <p class="lead">
-            Stoffen, garens, fournituren – selectie die we zelf gebruiken bij
-            maatwerk en retouches.
-          </p>
-          <h2>Materialen</h2>
-          <ul class="bullets">
-            <li>Zijde, wol, linnen, katoen</li>
-            <li>Kant & decoratieve banden</li>
-            <li>Goudkleurige metalen fournituren</li>
-          </ul>
-          <div class="about-tools">
-            <label class="file-btn">
-              Achtergrond wijzigen
-              <input type="file" id="atelierChangeBg" accept="image/*" />
-            </label>
-          </div>
-        </div>
-
-        <div class="about-gallery" id="atelierGallery">
-          <img
-            src="https://images.unsplash.com/photo-1503342217505-b0a15cf70489?q=80&w=800"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1520975922284-8b456906c813?q=80&w=800"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=800"
-            alt=""
-          />
-        </div>
+      <div class="container">
+        <h1>Shop</h1>
+        <div class="products" id="products"></div>
       </div>
     </main>
 
-    <!-- Тот же FOOTER -->
+    <!-- Тот же FOOTER, что и в index.html -->
     <footer class="site-footer" id="contact">
       <div class="container footer-grid">
         <div>
@@ -128,6 +92,9 @@
               >
             </li>
           </ul>
+          <p class="muted small">
+            Open: di–za 9:00–18:00, zo/ma/feestdagen gesloten
+          </p>
         </div>
         <div>
           <h3>Kaart</h3>
@@ -139,15 +106,31 @@
           </div>
         </div>
         <div>
-          <h3>Openingstijden</h3>
-          <p class="muted small">
-            Di–Za 9:00–18:00. Zo/Ma/Feestdagen – gesloten.
-          </p>
+          <h3>Nieuwsbrief</h3>
+          <p class="muted">Ontvang nieuws over nieuwe collecties en acties.</p>
+          <form
+            class="row"
+            onsubmit="event.preventDefault(); alert('Bedankt!');"
+          >
+            <input
+              type="email"
+              placeholder="E-mail"
+              required
+              style="
+                background: #0f1116;
+                border: 1px solid var(--ring);
+                border-radius: 10px;
+                padding: 0.6rem 0.7rem;
+                color: var(--text);
+              "
+            />
+            <button class="btn btn-gold" type="submit">Inschrijven</button>
+          </form>
         </div>
       </div>
     </footer>
 
-    <!-- Drawer + backdrop + viewer -->
+    <!-- Drawer + backdrop + viewer такие же, как в index.html -->
     <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
       <div class="cart-header">
         <strong>Uw winkelwagen</strong>
@@ -185,5 +168,9 @@
     </div>
 
     <script src="assets/js/script.js"></script>
+    <script>
+      if (window.renderProducts)
+        renderProducts(document.getElementById("products"));
+    </script>
   </body>
 </html>
